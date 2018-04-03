@@ -1,10 +1,19 @@
 <h2><%= @passenger.name%></h2>
 <p><%= @passenger.phone_num %></p>
 <ul>
+  <% @trips.each do |trip| %>
+  <li>
+    <span class="name">
+      <%=  link_to trip.date, trip_path(trip.id), class: 'trip-link' %>
+    </span>
+  </li>
+  <% end %>
+</ul>
+<ul>
   <li>
     <%= link_to "Edit", edit_passenger_path %>
   </li>
   <li>
-  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
   </li>
 </ul>
