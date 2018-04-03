@@ -1,2 +1,11 @@
 <h3>Drivers</h3>
-<p>This will list all the drivers!</p>
+<p>This lists all the drivers!</p>
+
+<% @drivers.each do |driver| %>
+  <p class="driver">
+    <strong><%= driver.name %></strong>
+  </p>
+  <p class="driver-vin">
+    <em><%= driver.vin %></em>
+  </p>
+<% end %>
