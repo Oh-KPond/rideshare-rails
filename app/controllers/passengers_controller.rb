@@ -7,7 +7,6 @@ class PassengersController < ApplicationController
   def show
     id = params[:id]
     @passenger = Passenger.find(id)
-
   end
 
   def new
@@ -39,26 +38,13 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    # id = params[:id]
     @passenger = Passenger.find_by(id: params[:id])
     @passenger.trips.delete_all
     if @passenger
       @passenger.destroy
     end
     redirect_to passengers_path
-
-
   end
-
-
-  # def destroy
-  #   id = params[:id]
-  #   @passenger = Passenger.find(id)
-  #   if @passenger
-  #     @passenger.destroy
-  #   end
-  #   redirect_to passengers_path
-  # end
 
   private
 
