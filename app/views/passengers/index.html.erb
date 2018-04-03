@@ -1,0 +1,11 @@
+<h3>Passengers</h3>
+<p>This lists all the passengers!</p>
+
+<% @passengers.each do |passenger| %>
+  <p class="passenger">
+    <strong><%= passenger.name %></strong>
+  </p>
+  <p class="passenger-phone_num">
+    <em><%= passenger.phone_num %></em>
+  </p>
+<% end %>
