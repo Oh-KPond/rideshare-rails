@@ -1,5 +1,7 @@
 <h2><%= @passenger.name%></h2>
-<p><%= @passenger.phone_num %></p>
+<p>Phone Number: <%= @passenger.phone_num %></p>
+<p>Total Charged: $<%= @passenger.total_charge %></p>
+<h3>Trips By Date: </h3>
 <ul>
   <% @trips.each do |trip| %>
   <li>
@@ -9,10 +11,13 @@
   </li>
   <% end %>
 </ul>
+
+<h3>Modify Passenger:  </h3>
 <ul>
   <li>
     <%= link_to "Edit", edit_passenger_path %>
   </li>
+
   <li>
     <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
   </li>
