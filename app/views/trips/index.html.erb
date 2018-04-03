@@ -1,0 +1,11 @@
+<h3>Trips</h3>
+<p>This lists all the trips!</p>
+
+<% @trips.each do |trip| %>
+  <p class="trip">
+    <strong><%= trip.id %></strong>
+  </p>
+  <p class="trip-date">
+    <em><%= trip.date %></em>
+  </p>
+<% end %>
