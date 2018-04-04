@@ -1,11 +1,11 @@
-<h3>Trips</h3>
-<p>This lists all the trips!</p>
-
-<% @trips.each do |trip| %>
-  <p class="trip">
-    <strong><%= trip.id %></strong>
-  </p>
-  <p class="trip-date">
-    <em><%= trip.date %></em>
-  </p>
-<% end %>
+<h2>Trips List</h2>
+<ul>
+  <% @trips.each do |trip| %>
+  <li>
+    <span class="name">
+      <%= trip.id %>
+      <%=  link_to trip.date, trip_path(trip.id), class: 'name-link' %>
+    </span>
+  </li>
+  <% end %>
+</ul>
