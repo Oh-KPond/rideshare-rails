@@ -1,8 +1,9 @@
 <h2><%= @trip.date%></h2>
 <p>Trip ID: <%= @trip.id %></p>
 <p>Trip Cost: $<%= @trip.cost / 100 %></p>
-<p><%= link_to "Passenger: #{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
-</p>
+<p><%= link_to "Passenger: #{@trip.passenger_id}", passenger_path(@trip.passenger_id) %></p>
+<p><%= link_to "Driver: #{@trip.driver_id}", drivers_path(@trip.driver_id) %></p>
+
 
 <h3>Modify trip:  </h3>
 <ul>
