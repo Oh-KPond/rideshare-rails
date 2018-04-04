@@ -3,7 +3,7 @@
 
 <% @drivers.each do |driver| %>
   <p class="driver">
-    <strong><%= driver.name %></strong>
+    <%=  link_to driver.name, driver_path(driver.id), class: 'driver-link' %>
   </p>
   <p class="driver-vin">
     <em><%= driver.vin %></em>

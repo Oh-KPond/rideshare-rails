@@ -1,0 +1,23 @@
+<h2><%= @driver.name%></h2>
+<p>VIN: <%= @driver.vin %></p>
+<h3>Trips By Date: </h3>
+<ul>
+  <% @trips.each do |trip| %>
+  <li>
+    <span class="name">
+      <%=  link_to trip.date, trip_path(trip.id), class: 'trip-link' %>
+    </span>
+  </li>
+  <% end %>
+</ul>
+
+<h3>Modify Driver:  </h3>
+<ul>
+  <li>
+    <%= link_to "Edit", edit_driver_path %>
+  </li>
+
+  <li>
+    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+</ul>
