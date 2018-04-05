@@ -41,13 +41,13 @@ class DriversController < ApplicationController
   def available
     @driver = Driver.find_by(id: params[:id])
     @driver.update_attributes(status: false)
-   redirect_to driver_path(status: true)
+   redirect_to driver_path
   end
 
   def unavailable
     @driver = Driver.find_by(id: params[:id])
     @driver.update_attributes(status: true)
-   redirect_to driver_path(status: false)
+   redirect_to driver_path
   end
 
   def destroy

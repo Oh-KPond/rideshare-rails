@@ -24,10 +24,8 @@
 <% end %>
 
 <%= f.label :driver_id %>
-
 <% if !params[:passenger_id] %>
   <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id]} %>
-
 <% else %>
   <% assigned_driver = Driver.first_available_driver.name %>
   <%= "#{assigned_driver}" %>
@@ -36,18 +34,13 @@
 
 
 <%= f.label :date %>
-<% if !params[:passenger_id] %>
   <%= f.date_field :date %>
-<% else %>
-  <%= f.date_field :date, min: Time.now %>
-<% end %>
-
 
 <%= f.label :rating %>
 <%= f.number_field :rating, min: 1, max: 5 %>
 
 <%= f.label :cost %>
-<%= f.number_field :cost, :step => 0.01 %>
+  <%= f.number_field :cost, :step => 0.01 %>
 
 <%= f.submit %>
 
