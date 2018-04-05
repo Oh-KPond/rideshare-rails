@@ -18,9 +18,9 @@
   <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
 
 <% else %>
-<%# TODO: Make the below a hidden field and display the name as a text %>
 <% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
-  <%= f.select :passenger_id,[[single_passenger.name, single_passenger.id]] %>
+  <%= "#{single_passenger.name}" %>
+  <%= f.hidden_field :passenger_id, value: single_passenger.id %>
 <% end %>
 
 <%= f.label :driver_id %>
