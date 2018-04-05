@@ -38,6 +38,18 @@ class DriversController < ApplicationController
     end
   end
 
+  def available
+    @driver = Driver.find_by(id: params[:id])
+    @driver.update_attributes(status: false)
+   redirect_to driver_path(status: true)
+  end
+
+  def unavailable
+    @driver = Driver.find_by(id: params[:id])
+    @driver.update_attributes(status: true)
+   redirect_to driver_path(status: false)
+  end
+
   def destroy
     @driver = Driver.find_by(id: params[:id])
     @driver.trips.delete_all

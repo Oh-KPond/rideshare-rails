@@ -20,7 +20,7 @@
 <% else %>
 <% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
   <%= "#{single_passenger.name}" %>
-  <%= f.hidden_field :passenger_id, value: single_passenger.id %>
+  <%= f.hidden_field :passenger_id %>
 <% end %>
 
 <%= f.label :driver_id %>
