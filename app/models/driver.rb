@@ -26,4 +26,11 @@ class Driver < ApplicationRecord
     end
     return average
   end
+
+  def available_driver
+  end
+
+  def unavailable_driver
+  end
+  
 end

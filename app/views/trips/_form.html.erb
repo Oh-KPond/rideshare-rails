@@ -18,7 +18,7 @@
   <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
 
 <% else %>
-<% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
+  <% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
   <%= "#{single_passenger.name}" %>
   <%= f.hidden_field :passenger_id %>
 <% end %>
@@ -27,7 +27,12 @@
 <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id]} %>
 
 <%= f.label :date %>
-<%= f.date_field :date %>
+<% if !params[:passenger_id] %>
+  <%= f.date_field :date %>
+<% else %>
+  <%= f.date_field :date, min: Time.now %>
+<% end %>
+
 
 <%= f.label :rating %>
 <%= f.number_field :rating, min: 1, max: 5 %>
