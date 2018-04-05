@@ -26,4 +26,15 @@ class Driver < ApplicationRecord
     end
     return average
   end
+
+  def self.get_available_drivers
+    available_drivers = Driver.where(status: true)
+    return available_drivers
+  end
+
+  def self.first_available_driver
+    first_available_driver =
+    self.get_available_drivers.first
+    return first_available_driver
+  end
 end

@@ -14,6 +14,13 @@
 <p>Total Earnings: $<%= @driver.total_earnings %></p>
 <p>Average Rating: <%= @driver.average_rating %></p>
 
+<h3>Status: <%= @driver.status %> </h3>
+<% if @driver.status == true %>
+  <%= link_to "Go Offline", available_path(@driver.id), method: :patch %>
+<% else %>
+  <%= link_to "Go Online", unavailable_path(@driver.id), method: :patch %>
+<% end %>
+
 <h3>Modify Driver:  </h3>
 <ul>
   <li>
