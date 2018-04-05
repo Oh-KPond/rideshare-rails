@@ -12,6 +12,7 @@ class TripsController < ApplicationController
   def new
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
+
       @trip = passenger.trips.new
 
     else
@@ -21,7 +22,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-
+    @trip.driver = Driver.first_available_driver
     if @trip.save
       redirect_to trips_path
     else
