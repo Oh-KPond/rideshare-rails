@@ -16,8 +16,11 @@
 
 <% if !params[:passenger_id] %>
   <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
+
 <% else %>
-  <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]}, {}, {:disabled => true} %>
+<%# TODO: Make the below a hidden field and display the name as a text %>
+<% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
+  <%= f.select :passenger_id,[[single_passenger.name, single_passenger.id]] %>
 <% end %>
 
 <%= f.label :driver_id %>
