@@ -1,15 +1,18 @@
 class TripsController < ApplicationController
+  def index
+    @trips = Trip.all
+  end
 
-    def index
-      @trips = Trip.all
-    end
+  def show
+    id = params[:id]
+    @trip = Trip.find(id)
+  end
 
-    def show
-      id = params[:id]
-      @trip = Trip.find(id)
-    end
-
-    def new
+  def new
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = passenger.trips.new
+    else
       @trip = Trip.new
     end
 
