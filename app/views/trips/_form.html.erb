@@ -10,11 +10,15 @@
 </ul>
 <% end %>
 
-
 <%= form_for @trip do |f| %>
 
 <%= f.label :passenger_id %>
-<%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
+
+<% if !params[:passenger_id] %>
+  <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
+<% else %>
+  <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]}, {}, {:disabled => true} %>
+<% end %>
 
 <%= f.label :driver_id %>
 <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id]} %>
@@ -27,7 +31,6 @@
 
 <%= f.label :cost %>
 <%= f.number_field :cost, :step => 0.01 %>
-
 
 <%= f.submit %>
 
