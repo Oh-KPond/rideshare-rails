@@ -1,18 +1,44 @@
 <h2><%= @passenger.name%></h2>
+<%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
+
 <p>Phone Number: <%= @passenger.phone_num %></p>
 <p>Total Charged: $<%= @passenger.total_charge %></p>
 <h3>Trips By Date: </h3>
-<ul>
-  <% @trips.each do |trip| %>
-  <li>
-    <span class="name">
-      <%=  link_to trip.date, trip_path(trip.id), class: 'trip-link' %>
-    </span>
-  </li>
-  <% end %>
-</ul>
 
-<%= link_to "Request a Ride", new_passenger_trip_path(@passenger.id) %>
+<table>
+  <thead>
+    <tr>
+      <th>Trip ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Cost</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= link_to trip.id,trip_path(trip.id), class: 'trip-link' %></td>
+        <td><%= trip.date %></td>
+        <td><%= link_to trip.driver_id,trip_path(trip.driver_id), class: 'trip-link' %></td>
+        <td><%= link_to trip.passenger_id,trip_path(trip.passenger_id), class: 'trip-link' %></td>
+        <td><%= trip.calculate_cost %></td>
+        <td><% if trip.rating == nil %>
+          <%= form_for trip do |f| %>
+            <%= f.number_field :rating, min: 1, max: 5 %>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <%= trip.rating %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h3>Modify Passenger:  </h3>
 <ul>

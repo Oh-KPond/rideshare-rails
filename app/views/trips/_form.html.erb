@@ -33,10 +33,22 @@
 <% end %>
 
 <%= f.label :date %>
+<% if !params[:passenger_id] %>
   <%= f.date_field :date %>
+<% else %>
+  <% assigned_date = Date.today %>
+  <%= "#{assigned_date}" %>
+  <%= f.hidden_field :date %>
+<% end %>
 
-<%= f.label :rating %>
-<%= f.number_field :rating, min: 1, max: 5 %>
+<% f.label :rating %>
+<% if !params[:passenger_id] %>
+  <%= f.number_field :rating, min: 1, max: 5 %>
+<% else %>
+  <% no_rating = :rating, nil %>
+  <%= "#{assigned_driver}" %>
+  <%= f.hidden_field :rating %>
+<% end %>
 
 <%= f.label :cost %>
   <%= f.number_field :cost, :step => 0.01 %>
