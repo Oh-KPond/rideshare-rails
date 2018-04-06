@@ -1,5 +1,44 @@
 body {
-  font-family: 'Mina', sans-serif;
+  font-family: 'Courier New', sans-serif;
   font-size: 15px;
   color: #190506;
+  margin: 15px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #2E5077;
+}
+
+a:hover {
+  padding: 5px;
+  background-color: #4DA1A9;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+a:visited {
+  color: #611C35;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+  line-height: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  line-height: 1.5em;
 }
