@@ -12,6 +12,7 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
       @trip = passenger.trips.new
+      # self.create
     else
       @trip = Trip.new
     end
