@@ -25,7 +25,7 @@ class TripsController < ApplicationController
     @trip.driver.save
 
     @trip.date = Date.today
-    @trip.cost = rand(1000..9999) 
+    @trip.cost = rand(1000..9999)
     if @trip.save
       redirect_to passenger_path(@trip[:passenger_id])
     else
@@ -39,9 +39,8 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id])
-
     if @trip.update(trip_params)
-      redirect_to trip_path(@trip.id)
+      redirect_to passenger_path(@trip[:passenger_id])
     else
       render :edit
     end

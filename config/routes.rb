@@ -10,5 +10,4 @@ Rails.application.routes.draw do
 
   patch '/drivers/:id/unavailable', to: 'drivers#unavailable', as: 'unavailable'
 
-
 end

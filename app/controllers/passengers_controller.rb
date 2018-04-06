@@ -37,6 +37,11 @@ class PassengersController < ApplicationController
     end
   end
 
+  def no_drivers_available
+    @passenger = Passenger.find_by(id: params[:id])
+   redirect_to no_drivers_available
+  end
+
   def destroy
     @passenger = Passenger.find_by(id: params[:id])
     @passenger.trips.delete_all
