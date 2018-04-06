@@ -1,33 +1,44 @@
 <h2><%= @driver.name%></h2>
-<p>VIN: <%= @driver.vin %></p>
-<h3>Trips By Date: </h3>
-<ul>
-  <% @trips.each do |trip| %>
-  <li>
-    <span class="name">
-      <%=  link_to trip.date, trip_path(trip.id), class: 'trip-link' %>
-    </span>
-  </li>
-  <% end %>
-</ul>
+<p class="vin-number">VIN: <%= @driver.vin %></p>
 
-<p>Total Earnings: $<%= @driver.total_earnings %></p>
-<p>Average Rating: <%= @driver.average_rating %></p>
+<section class="all-driver-info">
+  <section class="driver-info">
+    <h3>Trips By Date: </h3>
 
-<h3>Status: <%= @driver.status %> </h3>
-<% if @driver.status == true %>
-  <%= link_to "Go Offline", available_path(@driver.id), method: :patch %>
-<% else %>
-  <%= link_to "Go Online", unavailable_path(@driver.id), method: :patch %>
-<% end %>
+    <ul class="driver-trip-list">
+      <% @trips.each do |trip| %>
+      <li class="driver-trip">
+        <span class="name">
+          <%=  link_to trip.date, trip_path(trip.id), class: 'trip-link' %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
 
-<h3>Modify Driver:  </h3>
-<ul>
-  <li>
-    <%= link_to "Edit", edit_driver_path %>
-  </li>
+    <div class="driver-numbers">
+      <p>Total Earnings: $<%= @driver.total_earnings %></p>
+      <p>Average Rating: <%= @driver.average_rating %></p>
+    </div>
+  </section>
 
-  <li>
-    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-</ul>
+  <section class="driver-status">
+    <h3>Status: <%= @driver.status %> </h3>
+    <% if @driver.status == true %>
+    <%= link_to "Go Offline", available_path(@driver.id), method: :patch %>
+    <% else %>
+    <%= link_to "Go Online", unavailable_path(@driver.id), method: :patch %>
+    <% end %>
+  </section>
+
+  <section class="modify-driver">
+    <h3>Modify Driver:  </h3>
+    <ul>
+      <li>
+        <%= link_to "Edit", edit_driver_path %>
+      </li>
+      <li>
+        <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    </ul>
+  </section>
+</section>

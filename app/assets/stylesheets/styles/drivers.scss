@@ -1,3 +1,53 @@
 // Place all the styles related to the drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.driver-card {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 220px);
+  grid-template-rows: 100px 100px 100px;
+}
+
+.driver-details {
+  border-radius: 5px;
+  background-color: #D7E8BA;
+  padding: 15px;
+}
+
+.driver-name {
+  text-decoration: underline;
+}
+
+.vin-number, .driver-info, .driver-status {
+  padding-bottom: 20px;
+}
+
+.driver-trip-list {
+  padding: 20px 0;
+}
+
+.driver-trip {
+  padding: 10px;
+}
+
+.driver-numbers {
+  font-weight: bold;
+}
+
+.driver-status h3 {
+  padding-bottom: 15px;
+}
+
+.modify-driver h3 {
+  padding-bottom: 10px;
+}
+
+.modify-driver li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.all-driver-info {
+  display: flex;
+  justify-content: space-around;
+}

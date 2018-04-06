@@ -1,11 +1,14 @@
-<h2>Drivers List</h2>
-<p>This lists all the drivers!</p>
+<h1>Drivers List</h1>
 
-<% @drivers.each do |driver| %>
-  <p class="driver">
-    <%=  link_to driver.name, driver_path(driver.id), class: 'driver-link' %>
-  </p>
-  <p class="driver-vin">
-    <em><%= driver.vin %></em>
-  </p>
-<% end %>
+<section class="driver-card">
+    <% @drivers.each do |driver| %>
+      <section class="driver-details">
+        <p class="driver-name">
+          <%=  link_to driver.name, driver_path(driver.id), class: 'driver-link' %>
+        </p>
+        <p class="driver-vin">
+          <em><%= driver.vin %></em>
+        </p>
+      </section>
+    <% end %>
+</section>
