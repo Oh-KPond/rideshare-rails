@@ -22,7 +22,7 @@
   </section>
 
   <section class="driver-status">
-    <h3>Status: <%= @driver.status %> </h3>
+    <h3>Status: <%= @driver.status == true ? "Availible" : "Unavailable" %> </h3>
     <% if @driver.status == true %>
     <%= link_to "Go Offline", available_path(@driver.id), method: :patch %>
     <% else %>
