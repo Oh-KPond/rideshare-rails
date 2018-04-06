@@ -3,13 +3,13 @@
 <p>Trip Cost: $<%= @trip.cost / 100 %></p>
 
 <% if @trip.driver_id != nil %>
-<p><%= link_to "Driver: #{@trip.driver_id}", driver_path(@trip.driver_id) %></p>
+<p><%= link_to "Driver: #{@trip.driver.name}", driver_path(@trip.driver_id) %></p>
 <% else %>
 <p><%= link_to "Driver: DELETED DRIVER", drivers_path %></p>
 <% end %>
 
 <% if @trip.passenger_id != nil %>
-<p><%= link_to "Passenger: #{@trip.passenger_id}", passenger_path(@trip.passenger_id) %></p>
+<p><%= link_to "Passenger: #{@trip.passenger.name}", passenger_path(@trip.passenger_id) %></p>
 <% else %>
 <p><%= link_to "Passenger: DELETED PASSENGER", passengers_path %></p>
 <% end %>
