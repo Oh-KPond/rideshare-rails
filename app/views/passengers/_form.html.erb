@@ -10,13 +10,22 @@
 </ul>
 <% end %>
 
+<section class="new-form">
 <%= form_for @passenger do |f| %>
+
+<div class="input-driver-name">
 <%= f.label :name %>
 <%= f.text_field :name %>
+</div>
 
+<div class="input-driver-vin">
 <%= f.label :phone_num %>
 <%= f.text_field :phone_num %>
+</div>
 
+<div class="submit">
 <%= f.submit %>
+<div>
 
 <% end %>
+</section>

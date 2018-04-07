@@ -1,4 +1,4 @@
-<h2 class="my-class"><%= page_title %></h2>
+<h2><%= page_title %></h2>
 
 <% if @driver.errors.any? %>
 <ul class="errors">
@@ -11,14 +11,22 @@
 <% end %>
 
 
+<section class="new-form">
+  <%= form_for @driver do |f| %>
 
-<%= form_for @driver do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+  <div class="input-driver-name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-<%= f.label :vin %>
-<%= f.text_field :vin %>
+  <div class="input-driver-vin">
+    <%= f.label :vin %>
+    <%= f.text_field :vin %>
+  </div>
 
-<%= f.submit %>
+  <div class="submit">
+    <%= f.submit %>
+  </div>
 
-<% end %>
+  <% end %>
+</section>

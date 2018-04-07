@@ -39,3 +39,40 @@ h3 {
 p {
   line-height: 1.5em;
 }
+
+.errors li {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #cc3b6f;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select {
+  font-size: 18px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.submit input {
+  font-size: 20px;
+  margin-top: 30px;
+  background-color: #cc3b6f;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+@media all and (max-width: 500px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav li{
+    padding-bottom: 10px;
+    text-decoration: underline;
+  }
+}
