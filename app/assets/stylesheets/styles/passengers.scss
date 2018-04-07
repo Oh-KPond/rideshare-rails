@@ -1,6 +1,36 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.trips-table {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(6, 200px);
+  margin: 15px;
+  background-color: #4DA1A9;
+  border-radius: 15px;
+}
+.trips-table h4 {
+  font-weight: bold;
+}
+
+.trips-table div {
+  padding: 10px;
+}
+
 .trip-link {
   font-weight: bold;
+}
+
+.passenger-details {
+  border-radius: 5px;
+  background-color: #4DA1A9;
+  padding: 15px;
+}
+
+.passenger-details a {
+  color: #D7E8BA;
+}
+
+.passenger-details a:hover {
+  background-color: #611C35;
 }

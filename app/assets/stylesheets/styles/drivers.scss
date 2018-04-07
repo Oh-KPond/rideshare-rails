@@ -1,12 +1,6 @@
 // Place all the styles related to the drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.driver-card {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(6, 220px);
-  grid-template-rows: 100px 100px 100px;
-}
 
 .driver-details {
   border-radius: 5px;
@@ -50,10 +44,4 @@
 .all-driver-info {
   display: flex;
   justify-content: space-around;
-}
-
-@media all and (max-width: 500px) {
-  .driver-card {
-    grid-template-columns: repeat(2, 180px);
-  }
 }

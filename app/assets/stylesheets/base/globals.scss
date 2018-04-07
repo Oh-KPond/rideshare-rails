@@ -40,6 +40,13 @@ p {
   line-height: 1.5em;
 }
 
+.driver-card, .passenger-card {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 220px);
+  grid-template-rows: 100px 100px 100px;
+}
+
 .errors li {
   margin-bottom: 15px;
   font-size: 1.5em;
@@ -74,5 +81,8 @@ label {
   nav li{
     padding-bottom: 10px;
     text-decoration: underline;
+  }
+  .driver-card, .passenger-card {
+    grid-template-columns: repeat(2, 180px);
   }
 }
