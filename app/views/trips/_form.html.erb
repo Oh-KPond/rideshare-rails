@@ -41,7 +41,7 @@
   <%= f.hidden_field :date %>
 <% end %>
 
-<% f.label :rating %>
+<%= f.label :rating %>
 <% if !params[:passenger_id] %>
   <%= f.number_field :rating, min: 1, max: 5 %>
 <% else %>

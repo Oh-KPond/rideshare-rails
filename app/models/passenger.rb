@@ -5,7 +5,6 @@ class Passenger < ApplicationRecord
   validates :phone_num, presence: true
 
   def total_charge
-    # Find the trips passenger took ,
     sum = 0
     self.trips.each do |trip|
       sum += trip.cost
@@ -14,4 +13,12 @@ class Passenger < ApplicationRecord
     return charge.round(2)
   end
 
+  def ride_in_progress
+    self.trips.each do |trip|
+      if trip.rating == nil
+        return true
+      end
+    end
+    return false
+  end
 end

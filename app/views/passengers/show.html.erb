@@ -1,9 +1,13 @@
 <h2><%= @passenger.name%></h2>
 
-<% if Driver.first_available_driver == nil %>
-<h3>No Driver Available </h3>
+<% if @passenger.ride_in_progress %>
+  <h3>Ride in Progress... </h3>
+
+<% elsif Driver.first_available_driver == nil %>
+  <h3>No Driver Is Available At This Time</h3>
+
 <% else %>
-<%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
+  <%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
 <% end %>
 
 <p>Phone Number: <%= @passenger.phone_num %></p>
